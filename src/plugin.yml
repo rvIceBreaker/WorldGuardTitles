@@ -1,0 +1,7 @@
+name: WorldGuardTitles
+main: com.glacialrush.plugin.WorldGuardTitles
+version: 1.0
+depend: [WorldGuard]
+commands:
+  worldguardtitles:
+    aliases: [wgt]
