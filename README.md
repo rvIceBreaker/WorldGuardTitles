@@ -1,6 +1,8 @@
 # WorldGuardTitles
 Send title messages on entry/exit for regions. 
 
+### [Download] (https://github.com/cyberpwnn/WorldGuardTitles/releases)
+
 # Configuration
 ``` YAML
 title:
