@@ -72,8 +72,9 @@ public class WorldGuardTitles extends JavaPlugin implements Listener
 			i = StringUtils.capitalize(i);
 		}
 		
-		String title = StringUtils.replace(ChatColor.translateAlternateColorCodes('&', cfg.getTitleEntryText()), "{RG}", i);
-		sendTitle(p, cfg.getFadeIn(), cfg.getStay(), cfg.getFadeOut(), title, "");
+		String title = StringUtils.replace(StringUtils.replace(ChatColor.translateAlternateColorCodes('&', cfg.getTitleEntryText()), "{RG}", i), "{P}", p.getName());
+		String stitle = StringUtils.replace(StringUtils.replace(ChatColor.translateAlternateColorCodes('&', cfg.getSubTitleEntryText()), "{RG}", i), "{P}", p.getName());
+		sendTitle(p, cfg.getFadeIn(), cfg.getStay(), cfg.getFadeOut(), title, stitle);
 	}
 	
 	public void titleExit(Player p, String i)
@@ -83,8 +84,9 @@ public class WorldGuardTitles extends JavaPlugin implements Listener
 			i = StringUtils.capitalize(i);
 		}
 		
-		String title = StringUtils.replace(ChatColor.translateAlternateColorCodes('&', cfg.getTitleExitText()), "{RG}", i);
-		sendTitle(p, cfg.getFadeIn(), cfg.getStay(), cfg.getFadeOut(), title, "");
+		String title = StringUtils.replace(StringUtils.replace(ChatColor.translateAlternateColorCodes('&', cfg.getTitleExitText()), "{RG}", i), "{P}", p.getName());
+		String stitle = StringUtils.replace(StringUtils.replace(ChatColor.translateAlternateColorCodes('&', cfg.getSubTitleExitText()), "{RG}", i), "{P}", p.getName());
+		sendTitle(p, cfg.getFadeIn(), cfg.getStay(), cfg.getFadeOut(), title, stitle);
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)

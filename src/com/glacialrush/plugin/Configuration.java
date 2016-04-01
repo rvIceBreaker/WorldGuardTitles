@@ -13,6 +13,8 @@ public class Configuration
 	
 	private String titleEntryText;
 	private String titleExitText;
+	private String subTitleEntryText;
+	private String subTitleExitText;
 	private Integer fadeIn;
 	private Integer fadeOut;
 	private Integer stay;
@@ -50,8 +52,16 @@ public class Configuration
 		{
 			fc.load(file);
 			
+			if(!fc.contains("title.sub-entry"))
+			{
+				fc.set("title.sub-entry", " ");
+				fc.set("title.sub-exit", " ");
+			}
+			
 			titleEntryText = fc.getString("title.entry");
 			titleExitText = fc.getString("title.exit");
+			subTitleEntryText = fc.getString("title.sub-entry");
+			subTitleExitText = fc.getString("title.sub-exit");
 			fadeIn = fc.getInt("title.timings.fade-in-ticks");
 			fadeOut = fc.getInt("title.timings.fade-out-ticks");
 			stay = fc.getInt("title.timings.stay-ticks");
@@ -70,6 +80,8 @@ public class Configuration
 		
 		fc.set("title.entry", "&aEntered &b{RG}");
 		fc.set("title.exit", "&cExited &e{RG}");
+		fc.set("title.sub-entry", "&asubtitle");
+		fc.set("title.sub-exit", "&csubtitle");
 		fc.set("title.timings.fade-in-ticks", 10);
 		fc.set("title.timings.fade-out-ticks", 20);
 		fc.set("title.timings.stay-ticks", 30);
@@ -164,5 +176,25 @@ public class Configuration
 	public void setCapitalize(Boolean capitalize)
 	{
 		this.capitalize = capitalize;
+	}
+
+	public String getSubTitleEntryText()
+	{
+		return subTitleEntryText;
+	}
+
+	public void setSubTitleEntryText(String subTitleEntryText)
+	{
+		this.subTitleEntryText = subTitleEntryText;
+	}
+
+	public String getSubTitleExitText()
+	{
+		return subTitleExitText;
+	}
+
+	public void setSubTitleExitText(String subTitleExitText)
+	{
+		this.subTitleExitText = subTitleExitText;
 	}
 }
