@@ -7,7 +7,7 @@ public class PacketUtil
 {
 	public enum V
 	{
-		R18, R19;
+		R18, R19, R110;
 	}
 	
 	public static V getVersion()
@@ -15,6 +15,10 @@ public class PacketUtil
 		if(Bukkit.getBukkitVersion().startsWith("1.9"))
 		{
 			return V.R19;
+		}
+		else if(Bukkit.getBukkitVersion().startsWith("1.10"))
+		{
+			return V.R110;
 		}
 		
 		return V.R18;
@@ -31,6 +35,11 @@ public class PacketUtil
 		{
 			PacketUtil19.sendTitle(player, fadeIn, stay, fadeOut, title, subtitle);
 		}
+		
+		if(getVersion().equals(V.R110))
+		{
+			PacketUtil110.sendTitle(player, fadeIn, stay, fadeOut, title, subtitle);
+		}
 	}
 	
 	public static void sendActionBar(Player player, String message)
@@ -43,6 +52,11 @@ public class PacketUtil
 		if(getVersion().equals(V.R19))
 		{
 			PacketUtil19.sendActionBar(player, message);
+		}
+		
+		if(getVersion().equals(V.R110))
+		{
+			PacketUtil110.sendActionBar(player, message);
 		}
 	}
 }
